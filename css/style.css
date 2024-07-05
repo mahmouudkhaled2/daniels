@@ -9,11 +9,6 @@
   --main-font: "Montserrat", sans-serif;
   --sub-font: "Poppins", sans-serif;
 }
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 html {
   scroll-behavior: smooth;
@@ -126,6 +121,7 @@ h6 {
 }
 
 .navbar-link {
+  position: relative;
   color: white !important;
 }
 
@@ -141,8 +137,24 @@ h6 {
   font-size: 15px;
 }
 
-.navbar .active {
-  border-bottom: 1px solid #fff;
+
+.navbar .active::after ,.navbar .navbar-link::after {
+  content: '';
+  height: 1px;
+  width: 0;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: all 0.5s; 
+}
+
+.navbar .active::after{
+  width: 100%;
+}
+
+.navbar .navbar-link:hover::after {
+  width: 100%;
 }
 
 .navbar-menu-btn {
